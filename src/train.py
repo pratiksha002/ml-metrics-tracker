@@ -7,7 +7,7 @@ import pickle
 def train_model():
     data = {
         "feature": [1, 2, 3, 4, 5, 6],
-        "target": [10, 20, 30, 40, 50, 60]
+        "target": [12, 19, 33, 37, 52, 58]
     }
 
 
@@ -24,7 +24,7 @@ def train_model():
 
     y_pred = model.predict(x_test)
 
-    with open("model/model_v1.pkl", "wb") as f:
+    with open("models/model_v1.pkl", "wb") as f:
         pickle.dump(model, f)
 
     return y_test.tolist(), y_pred.tolist()
