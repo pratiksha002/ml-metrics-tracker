@@ -2,6 +2,7 @@ from src.train import train_model
 from src.evaluate import evaluate_regression
 from src.logger import log_metrics, log_prediction
 from src.tracker import track_experiment
+from src.tracker import get_best_experiment
 
 def main():
     model_version = 'v1'
@@ -26,4 +27,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+best_exp = get_best_experiment(metric="mae")
 
+print("\nBest Experiment:")
+print(best_exp)

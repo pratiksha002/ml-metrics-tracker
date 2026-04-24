@@ -40,20 +40,20 @@ def track_experiment(model_version, parameters, metrics):
 
     print(f"Experiment {run_id} tracked")
 
-    def get_best_experiment(metric="mae"):
-        experiments = load_experiments()
+def get_best_experiment(metric="mae"):
+    experiments = load_experiments()
 
-        if not experiments:
-            print("No experiments found!")
-            return None
+    if not experiments:
+        print("No experiments found!")
+        return None
         
-        if metric in ["mae", "rmse"]:
-            best = min(experiments, key=lambda x: x["metrics"][metric])
+    if metric in ["mae", "rmse"]:
+        best = min(experiments, key=lambda x: x["metrics"][metric])
 
-        elif metric == "r2":
-            best = max(experiments, key=lambda x: x["metrics"][metric])
+    elif metric == "r2":
+        best = max(experiments, key=lambda x: x["metrics"][metric])
 
-        else:
-            raise ValueError("Invalid metric")
+    else:
+        raise ValueError("Invalid metric")
         
-        return best
+    return best
